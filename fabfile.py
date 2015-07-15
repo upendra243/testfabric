@@ -26,7 +26,6 @@ def prepare_deploy():
     push()
 
 def prepare_server():
-   prepare_deploy()
    sudo('apt-get install aptitude -y')
    sudo('aptitude install -y python-setuptools')
    sudo('easy_install pip')
