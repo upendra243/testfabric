@@ -3,6 +3,7 @@ from fabric.api import *
 from fabric.contrib.console import confirm
 
 env.hosts = ['172.16.1.146']
+env.user = 'upkushwaha'
 
 def test():
     with settings(warn_only=True):
