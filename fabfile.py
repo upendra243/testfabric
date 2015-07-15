@@ -12,7 +12,7 @@ def test():
         abort("Aborting at user request.")
 
 def commit():
-    local("git add -A && git commit")
+    local("git add -p && git commit")
 
 def push():
     local("git push")
