@@ -4,6 +4,7 @@ from fabric.contrib.console import confirm
 
 env.hosts = ['172.16.1.146']
 env.user = 'upkushwaha'
+git_url = 'https://github.com/upendra243/testfabric.git' 
 
 def test():
     with settings(warn_only=True):
@@ -23,10 +24,10 @@ def prepare_deploy():
     push()
 
 def deploy():
-    code_dir = '/srv/django/myproject'
+    code_dir = '~/testfabric/django/'
     with settings(warn_only=True):
         if run("test -d %s" % code_dir).failed:
-            run("git clone https://github.com/upendra243/testfabric.git %s" % code_dir)
+            run("git clone %s  %s" % { git_url, code_dir})
     with cd(code_dir):
         run("git pull")
         run("touch app.wsgi")
